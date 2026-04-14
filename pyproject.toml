@@ -3,8 +3,16 @@ name = "discord-astroarch-recompile-bot"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
     "discord>=2.3.2",
-    "requests>=2.33.1",
+    "httpx>=0.28.1",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.3.1",
+    "ipdb>=0.13.13",
+    "ipython>=9.12.0",
+    "isort>=8.0.1",
 ]
