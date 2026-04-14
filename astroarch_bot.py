@@ -20,7 +20,6 @@ WORKFLOW_REPO = os.getenv("WORKFLOW_REPO", "astroarch-pkgs")      # Your repo
 
 # Discord
 CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
-print(CHANNEL_ID)
 OWNER_ID = os.getenv("DISCORD_OWNER_ID")
 
 # Architectures
@@ -187,7 +186,6 @@ def trigger_workflow(package: str, arch: str, requester: str) -> bool:
         url = f"https://api.github.com/repos/{WORKFLOW_OWNER}/{WORKFLOW_REPO}/actions/workflows/{workflow}.yml/dispatches"
         
         response = requests.post(url, json=payload, headers=headers)
-        print(response.content)
         response.raise_for_status()
         
         return True
