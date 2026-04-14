@@ -130,7 +130,7 @@ class ApprovalButtons(ui.View):
     async def reject(self, interaction: discord.Interaction, button: ui.Button):
         await interaction.response.defer()
         
-        if interaction.user.id != self.owner_id:
+        if interaction.user.id != int(self.owner_id):
             await interaction.followup.send(
                 "Only the channel owner can reject.",
                 ephemeral=True
