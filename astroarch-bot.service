@@ -1,0 +1,19 @@
+[Unit]
+Description=AstroArch Recompile Discord Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=matt
+WorkingDirectory=/opt/astroarch-discord-bot
+Environment=DISCORD_TOKEN=<your-discord-token>
+Environment=DISCORD_OWNER_ID=<your-discord-owner-id>
+Environment=GITHUB_PAT=<your-github-pat>
+Environment=CHANNEL_ID=<your-channel-id>
+ExecStart=/usr/bin/uv run astroarch_bot.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
