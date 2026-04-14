@@ -198,6 +198,7 @@ async def on_ready():
 
 
 @bot.command(name="recompile")
+@commands.cooldown(1, 30, commands.BucketType.user)
 async def recompile_command(ctx):
     """Start recompile request flow."""
     if ctx.channel.id != CHANNEL_ID:
